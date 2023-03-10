@@ -1,0 +1,12 @@
+package com.loan.web.service;
+
+import com.loan.web.database.CategoryDb;
+import com.loan.web.model.Category;
+
+public class CategoryService {
+	boolean InsertData(Category category) {
+		return CategoryDb.InsertData(category);
+		
+		
+	}
+}

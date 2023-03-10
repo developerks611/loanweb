@@ -1,0 +1,22 @@
+package com.loan.web.database;
+
+import java.sql.CallableStatement;
+import java.sql.Connection;
+
+import com.loan.web.model.*;
+
+public class ProductDb {
+	
+	public boolean insertdata(Product product) {
+		DbConnector connector = new SqlDbConnector();
+		Connection connection = connector.getConnection();
+		String query="{call addBrand(?,?)}";
+		CallableStatement  ps = connection.prepareCall(query);
+		
+		boolean result = ps.executeUpdate() > 0 ;
+		ps.close();
+		connection.close();
+		return result;
+	}
+	
+}

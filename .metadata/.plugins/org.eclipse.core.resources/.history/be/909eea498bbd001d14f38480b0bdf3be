@@ -1,0 +1,18 @@
+package com.loan.web.service;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import com.loan.web.database.CategoryDb;
+import com.loan.web.model.Category;
+
+public class CategoryService {
+	public boolean InsertData(Category category) throws ClassNotFoundException, SQLException {
+		return CategoryDb.InsertData(category);
+		}
+	
+	public List<Category>viewAll() throws ClassNotFoundException, SQLException{
+		
+		return CategoryDb.viewAll();
+	}
+}

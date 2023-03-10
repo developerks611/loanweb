@@ -1,0 +1,9 @@
+package com.loan.web.model;
+
+public class Category {
+private int catid;
+private String catname;
+private String catdes;
+
+
+}

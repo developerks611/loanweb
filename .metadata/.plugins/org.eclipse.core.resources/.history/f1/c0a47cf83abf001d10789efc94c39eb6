@@ -1,0 +1,12 @@
+package com.loan.web.database;
+
+public class CustomerDb {
+
+	
+		public List<Customer>getcustomer(){
+			
+			Customer c=new Customer();
+			return ;
+			
+		}
+}

@@ -1,0 +1,6 @@
+package com.loan.web.model;
+
+public class Customer {
+	String cname;
+	String cdob;
+}

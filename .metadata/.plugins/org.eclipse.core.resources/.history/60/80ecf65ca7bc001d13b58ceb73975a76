@@ -1,0 +1,8 @@
+package com.loan.web.model;
+
+public class Brand {
+	private int  brandid;
+	private String brandname;
+	private String branddescription;
+	
+}

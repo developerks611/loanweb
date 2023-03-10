@@ -1,0 +1,16 @@
+package com.loan.web.database;
+
+import java.util.List;
+
+import com.loan.web.model.Customer;
+
+public class CustomerDb {
+
+	
+		public List<Customer>getcustomer(){
+			
+			List<Customer> c=new ArrayList();
+			return c;
+			
+		}
+}

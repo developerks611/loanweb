@@ -1,0 +1,10 @@
+package com.loan.web.database;
+
+public class ProductDb {
+	private int productid;
+	private String productname;
+	private String productdes;
+	private int catid;
+	private int brandid;
+	private double price;
+}

@@ -1,0 +1,29 @@
+package com.loan.web.database;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class BrandDbTest {
+
+	@Test
+	public void testInsertData() {
+		
+	}
+
+	@Test
+	public void testViewAll() {
+		
+	}
+
+	@Test
+	public void testSearch() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testUpdate() {
+		fail("Not yet implemented");
+	}
+
+}

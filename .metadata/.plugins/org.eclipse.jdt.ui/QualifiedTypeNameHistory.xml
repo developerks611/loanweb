@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.sql.CallableStatement"/>
+    <fullyQualifiedTypeName name="com.loan.web.database.BrandDb"/>
+    <fullyQualifiedTypeName name="com.loan.web.service.BrandService"/>
+    <fullyQualifiedTypeName name="java.sql.Statement"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="com.loan.web.database.CategoryDb"/>
+    <fullyQualifiedTypeName name="com.loan.web.service.CategoryService"/>
+    <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
+    <fullyQualifiedTypeName name="com.loan.web.model.Product"/>
+    <fullyQualifiedTypeName name="com.loan.web.service.ProductService"/>
+    <fullyQualifiedTypeName name="com.loan.web.model.Category"/>
+    <fullyQualifiedTypeName name="com.loan.web.model.Brand"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.loan.web.model.Customer"/>
+</qualifiedTypeNameHistroy>

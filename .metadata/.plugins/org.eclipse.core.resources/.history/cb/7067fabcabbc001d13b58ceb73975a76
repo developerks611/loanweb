@@ -1,0 +1,30 @@
+package com.loan.web.database;
+
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.List;
+
+import com.loan.web.model.Brand;
+
+public class BrandDb {
+
+	public static boolean InsertData(Brand brand) throws ClassNotFoundException, SQLException {
+		
+		DbConnector connector = new SqlDbConnector();
+		Connection connection = connector.getConnection();
+		String query="{call addBrand(?,?)}";
+		CallableStatement  ps = connection.prepareCall(query);
+		ps.setString(1,brand.getBrandname());
+		ps.setString(2, brand.getBranddescription());
+		boolean result = ps.executeUpdate() > 0 ;
+		ps.close();
+		connection.close();
+		return result;
+	}
+	
+	public static List<Brand>viewAll(){
+		return null;
+	}
+}

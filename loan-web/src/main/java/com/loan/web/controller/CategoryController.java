@@ -1,0 +1,152 @@
+package com.loan.web.controller;
+
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.loan.web.model.Brand;
+import com.loan.web.model.Category;
+import com.loan.web.service.BrandService;
+import com.loan.web.service.CategoryService;
+
+/**
+ * Servlet implementation class CategoryController
+ */
+public class CategoryController extends HttpServlet {
+	String systemmsg="";
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+   
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String action=request.getParameter("action");
+		if(action.equals("viewalldata")) {
+			
+			viewAll(request, response);
+		}
+		
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String action=request.getParameter("action");
+		if(action.equals("inserdata")) {
+			InsertData(request, response);
+			
+		}
+		else if(action.equals("updatedata")) {
+			
+			updateData(request, response);
+		}
+		else if(action.equals("searchdata")) {
+			searchData(request, response);
+		}
+	
+	}
+
+	
+	private void InsertData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		CategoryService cservice=new CategoryService();
+		Category categ=new Category();
+		categ.setCatname(request.getParameter("cname"));
+		categ.setCatdes(request.getParameter("cd"));
+		try {
+			boolean insert=cservice.InsertData(categ);
+			if(insert) {
+				systemmsg="Category Insert";
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			
+			systemmsg=e.getMessage();
+		}
+		
+		request.setAttribute("msg", systemmsg);
+		RequestDispatcher rd=request.getRequestDispatcher("viewbrand.jsp");
+		rd.forward(request, response);
+		
+	}
+	
+	private void viewAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		CategoryService cservice=new CategoryService();
+		List<Category> categ=new ArrayList();
+		RequestDispatcher rd;
+		try {
+			categ=cservice.viewAll();
+			
+			if(categ.isEmpty()) {
+				systemmsg="Empty Data";
+				
+			}
+			request.setAttribute("categlist",categ);
+		} catch (ClassNotFoundException | SQLException e) {
+			systemmsg=e.getMessage();
+		}
+		
+		request.setAttribute("msg", systemmsg);
+		rd=request.getRequestDispatcher("viewcategory.jsp");
+		rd.forward(request, response);
+		
+		
+	}
+	
+	private void updateData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String serveletmsg="";	
+		CategoryService cservice=new CategoryService();
+		Category categ=new Category();
+		categ.setCatid(Integer.parseInt(request.getParameter("cid")));
+		categ.setCatname(request.getParameter("cname"));
+		categ.setCatdes(request.getParameter("cd"));
+		;
+		try {
+			boolean updateresult=cservice.update(categ);
+			if(updateresult) {
+				serveletmsg="Product Updated";
+			}
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			serveletmsg=e.getMessage();
+		}
+		request.setAttribute("msg", serveletmsg);
+		response.sendRedirect("/loan-web/viewCateg?action=viewalldata");
+		
+	}
+	
+	private void searchData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		CategoryService cservice=new CategoryService();
+		Category categ=new Category();
+		categ.setCatid(Integer.parseInt(request.getParameter("cid")));
+		try {
+			categ=cservice.search(categ);
+			if(categ==null) {
+				
+				systemmsg="Sorry Not Displaying";
+			}
+			request.setAttribute("categ",categ);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//
+		
+		request.setAttribute("msg", systemmsg);
+		RequestDispatcher rd=request.getRequestDispatcher("searchcat.jsp");
+		 rd.forward(request, response);
+	}
+	
+}

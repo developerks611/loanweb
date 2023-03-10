@@ -1,0 +1,33 @@
+package com.loan.web.database;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import com.loan.web.model.Brand;
+
+public class BrandDbTest {
+
+	@Test
+	public void testInsertData() {
+		Brand brand=new Brand();
+		brand.setBrandname("Motorola");
+		brand.setBranddescription("Mobile phones");
+	}
+
+	@Test
+	public void testViewAll() {
+		
+	}
+
+	@Test
+	public void testSearch() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testUpdate() {
+		fail("Not yet implemented");
+	}
+
+}

@@ -1,0 +1,39 @@
+package com.loan.web.database;
+
+import static org.junit.Assert.*;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import org.junit.Test;
+
+import com.loan.web.model.Brand;
+
+public class BrandDbTest {
+
+	@Test
+	public void testInsertData() throws ClassNotFoundException, SQLException {
+		Brand brand=new Brand();
+		brand.setBrandname("Motorola");
+		brand.setBranddescription("Mobile phones");
+		boolean Result=BrandDb.InsertData(brand);
+		assertEquals(true,Result);
+	}
+
+	@Test
+	public void testViewAll() throws ClassNotFoundException, SQLException {
+		
+		List<Brand>brandlist=BrandDb.viewAll();
+		 asserNotNull(brandlist);
+
+	@Test
+	public void testSearch() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testUpdate() {
+		fail("Not yet implemented");
+	}
+
+}

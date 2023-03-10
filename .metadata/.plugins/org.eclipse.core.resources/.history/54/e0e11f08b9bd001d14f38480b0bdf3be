@@ -1,0 +1,12 @@
+package com.loan.web.database;
+
+import com.loan.web.model.*;
+
+public class ProductDb {
+	
+	public boolean insertdata(Product product) {
+		
+		
+	}
+	
+}

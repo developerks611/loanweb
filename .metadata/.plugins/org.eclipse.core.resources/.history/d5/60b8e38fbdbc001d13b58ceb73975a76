@@ -1,0 +1,12 @@
+package com.loan.web.service;
+
+import java.sql.SQLException;
+
+import com.loan.web.database.BrandDb;
+import com.loan.web.model.Brand;
+
+public class BrandService {
+	public boolean InsertData(Brand brand) throws ClassNotFoundException, SQLException {
+		return BrandDb.InsertData(brand);
+	}
+}
